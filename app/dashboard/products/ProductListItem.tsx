@@ -23,7 +23,7 @@ export default function ProductListItem({ product }) {
           {product.name}
         </Text>
         <Heading size="md" className="mb-4">
-          ${product.price}
+          ₦{product.price}
         </Heading>
       </Card>
     </Link>
