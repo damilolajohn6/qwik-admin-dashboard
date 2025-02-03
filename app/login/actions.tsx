@@ -1,4 +1,4 @@
-'use server';
+ 'use server';
 
 import { login, signup } from '@/api/auth';
 import { cookies } from 'next/headers';
