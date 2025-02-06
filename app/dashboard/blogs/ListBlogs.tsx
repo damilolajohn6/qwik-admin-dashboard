@@ -1,10 +1,17 @@
+
 import { Card } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
 import { Text } from "@/components/ui/text";
-// import { Heading } from "@/components/ui/heading";
 import Link from "next/link";
 
-export default function ListBlog({ blog }) {
+interface Blog {
+  id: string;
+  Image: string;
+  name: string;
+  content: string;
+}
+
+export default function ListBlog({ blog }: { blog: Blog }) {
   return (
     <Link
       href={`/dashboard/blogs/${blog.id}`}
