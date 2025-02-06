@@ -40,6 +40,7 @@ export async function createProduct(
         throw new Error("Failed to create product");
       }
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     redirectUrl = `/dashboard/products/create?errorMessage=${encodeURIComponent(
       "Failed to create product"

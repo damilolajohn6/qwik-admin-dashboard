@@ -8,6 +8,7 @@ import { HStack } from '@/components/ui/hstack';
 import { Button, ButtonText } from '@/components/ui/button';
 import { useState } from 'react';
 import { Box } from '@/components/ui/box';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { login, signup } from '@/api/auth';
 import { handleLogin, handleSignup } from './actions';
 import { useSearchParams } from 'next/navigation';

@@ -3,9 +3,7 @@
 import React, { useRef, useState } from 'react';
 import { useServerInsertedHTML } from 'next/navigation';
 import { StyleRegistry, createStyleRegistry } from 'styled-jsx';
-// @ts-ignore
-import { Main } from 'next/document';
-// @ts-ignore
+// @ts-expect-error @typescript-eslint/ban-ts-comment
 import { AppRegistry } from 'react-native-web';
 import { flush } from '@gluestack-ui/nativewind-utils/flush';
 
@@ -20,6 +18,7 @@ export default function StyledJsxRegistry({
   const isServerInserted = useRef(false);
 
   useServerInsertedHTML(() => {
+    const Main = () => <>{children}</>;
     AppRegistry.registerComponent('Main', () => Main);
     const { getStyleElement } = AppRegistry.getApplication('Main');
     if (!isServerInserted.current) {
