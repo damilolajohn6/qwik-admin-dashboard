@@ -5,7 +5,7 @@ import { Text } from "@/components/ui/text";
 import Link from "next/link";
 
 interface Blog {
-  id: string;
+  id: number;
   Image: string;
   name: string;
   content: string;

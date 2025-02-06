@@ -15,6 +15,7 @@ export default function BlogPage({
     id: number;
     name: string;
     content: string;
+    Image: string;
   }
 
   const [blog, setBlog] = useState<Blog | null>(null);
@@ -22,6 +23,7 @@ export default function BlogPage({
   const [updatedData, setUpdatedData] = useState({
     name: "",
     content: "",
+    Image: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -37,6 +39,7 @@ export default function BlogPage({
         setUpdatedData({
           name: data.name,
           content: data.content,
+          Image: data.Image
         });
       } catch (err) {
         setError("Failed to fetch blog details.");
