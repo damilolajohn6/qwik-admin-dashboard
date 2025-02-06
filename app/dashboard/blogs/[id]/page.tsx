@@ -1,3 +1,4 @@
+// eslint-disable-
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -150,6 +151,7 @@ export default function BlogPage({
           </div>
         </div>
       ) : (
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         <ListBlog blog={blog} />
       )}
     </div>
