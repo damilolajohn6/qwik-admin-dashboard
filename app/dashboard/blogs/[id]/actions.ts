@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export async function deleteProductById(id: number) {
+export async function deleteBlogById(id: number) {
   const token = cookies().get("token")?.value;
 
   if (!token) {
@@ -28,11 +28,10 @@ export async function deleteProductById(id: number) {
 
 interface BlogData {
   name: string;
-  price: number;
   content?: string;
 }
 
-export async function updateProduct(id: number, productData: BlogData) {
+export async function updateBlog(id: number, productData: BlogData) {
   const token = cookies().get("token")?.value;
 
   if (!token) {
