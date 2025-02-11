@@ -16,7 +16,7 @@ interface Product {
 }
 
 export default async function ProductsPage() {
-  const products: Product[] = await listProducts(); // Explicitly define type
+  const products: Product[] = await listProducts();
 
   return (
     <div className="flex flex-row flex-wrap gap-4 max-w-[1400px] w-full">
@@ -31,7 +31,7 @@ export default async function ProductsPage() {
 
       {products.map(
         (
-          product: Product // Explicitly define 'product' type
+          product: Product
         ) => (
           <ProductListItem key={product.id} product={product} />
         )
