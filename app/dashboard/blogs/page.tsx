@@ -4,8 +4,15 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { AddIcon, Icon } from "@/components/ui/icon";
 
+interface Blog {
+  id: number;
+  Image: string;
+  name: string;
+  content: string;
+}
+
 export default async function BlogsPage() {
-  const blogs = await fetchBlogs();
+  const blogs: Blog[] = await fetchBlogs(); // Explicitly define type for blogs
 
   return (
     <div className="flex flex-row flex-wrap gap-4 max-w-[1400px] w-full">
@@ -18,9 +25,14 @@ export default async function BlogsPage() {
         </Card>
       </Link>
 
-      {blogs.map((blog) => (
-        <ListBlog key={blog.id} blog={blog} />
-      ))}
+      {blogs.map(
+        (
+          blog: Blog // Explicitly define 'blog' type
+        ) => (
+          <ListBlog key={blog.id} blog={blog} />
+        )
+      )}
     </div>
   );
 }
+

@@ -4,8 +4,19 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { AddIcon, Icon } from "@/components/ui/icon";
 
+
+interface Product {
+  id: number;
+  Image: string;
+  name: string;
+  price: number;
+  category: string;
+  tag: string;
+  description: string;
+}
+
 export default async function ProductsPage() {
-  const products = await listProducts();
+  const products: Product[] = await listProducts(); // Explicitly define type
 
   return (
     <div className="flex flex-row flex-wrap gap-4 max-w-[1400px] w-full">
@@ -18,9 +29,13 @@ export default async function ProductsPage() {
         </Card>
       </Link>
 
-      {products.map((product) => (
-        <ProductListItem key={product.id} product={product} />
-      ))}
+      {products.map(
+        (
+          product: Product // Explicitly define 'product' type
+        ) => (
+          <ProductListItem key={product.id} product={product} />
+        )
+      )}
     </div>
   );
 }

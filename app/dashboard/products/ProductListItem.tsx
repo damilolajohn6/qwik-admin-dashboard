@@ -4,7 +4,17 @@ import { Text } from "@/components/ui/text";
 import { Heading } from "@/components/ui/heading";
 import Link from "next/link";
 
-export default function ProductListItem({ product }) {
+interface Product {
+  id: number;
+  Image: string;
+  name: string;
+  price: number;
+  category: string;
+  tag: string;
+  description: string;
+}
+
+export default function ProductListItem({ product }: { product: Product }) {
   return (
     <div className="p-4">
       <Link
