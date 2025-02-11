@@ -84,8 +84,8 @@ export default function CreateProductPage() {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center py-10 bg-gray-50">
-      <div className="w-full max-w-lg bg-white p-6 shadow-md rounded-lg">
+    <div className="min-h-screen flex items-center justify-center px-4 py-10 bg-gray-50">
+      <div className="w-full max-w-2xl bg-white p-6 shadow-md rounded-lg md:p-8 lg:p-10">
         <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">
           Create Product
         </h2>
@@ -100,19 +100,34 @@ export default function CreateProductPage() {
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-gray-700 font-medium">Product Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full p-2 border rounded-md focus:ring focus:ring-blue-300"
-            />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label className="block text-gray-700 font-medium">
+                Product Name
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full p-2 border rounded-md focus:ring focus:ring-blue-300"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium">
+                Category
+              </label>
+              <input
+                type="text"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="w-full p-2 border rounded-md focus:ring focus:ring-blue-300"
+              />
+            </div>
           </div>
 
           <div>
             <label className="block text-gray-700 font-medium">
-              Product Description
+              Description
             </label>
             <textarea
               value={description}
@@ -121,36 +136,27 @@ export default function CreateProductPage() {
             ></textarea>
           </div>
 
-          <div>
-            <label className="block text-gray-700 font-medium">Price</label>
-            <input
-              type="number"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              className="w-full p-2 border rounded-md focus:ring focus:ring-blue-300"
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-700 font-medium">Category</label>
-            <input
-              type="text"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              className="w-full p-2 border rounded-md focus:ring focus:ring-blue-300"
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-700 font-medium">
-              Tags (comma-separated)
-            </label>
-            <input
-              type="text"
-              value={tags}
-              onChange={(e) => setTags(e.target.value)}
-              className="w-full p-2 border rounded-md focus:ring focus:ring-blue-300"
-            />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label className="block text-gray-700 font-medium">Price</label>
+              <input
+                type="number"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                className="w-full p-2 border rounded-md focus:ring focus:ring-blue-300"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium">
+                Tags (comma-separated)
+              </label>
+              <input
+                type="text"
+                value={tags}
+                onChange={(e) => setTags(e.target.value)}
+                className="w-full p-2 border rounded-md focus:ring focus:ring-blue-300"
+              />
+            </div>
           </div>
 
           <div>
@@ -169,7 +175,7 @@ export default function CreateProductPage() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-all disabled:opacity-50"
             disabled={loading}
           >
             {loading ? "Saving..." : "Save Product"}
