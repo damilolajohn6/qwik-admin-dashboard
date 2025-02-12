@@ -1,7 +1,7 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function listProducts() {
-  const res = await fetch(`${API_URL}/products`);
+  const res = await fetch(`${API_URL}/products`, { cache: "no-store" });
   const data = await res.json();
   if (!res.ok) {
     throw new Error("Error");
@@ -10,7 +10,7 @@ export async function listProducts() {
 }
 
 export async function fetchProductById(id: number) {
-  const res = await fetch(`${API_URL}/products/${id}`);
+  const res = await fetch(`${API_URL}/products/${id}`, { cache: "no-store" });
   const data = await res.json();
   if (!res.ok) {
     throw new Error("Error");
