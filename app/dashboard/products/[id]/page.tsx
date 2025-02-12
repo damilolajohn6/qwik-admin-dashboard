@@ -65,7 +65,7 @@ export default function ProductPage({
   };
 
   // Handle form field change
-  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setUpdatedData((prevData) => ({
       ...prevData,
@@ -134,13 +134,13 @@ export default function ProductPage({
             className="border p-2 rounded w-full"
             placeholder="Product Price"
           />
-          <input
-            type="text"
+          <textarea
             name="description"
             value={updatedData.description}
             onChange={handleFieldChange}
             className="border p-2 rounded w-full"
             placeholder="Product Description"
+            rows={6}
           />
           <input
             type="text"
