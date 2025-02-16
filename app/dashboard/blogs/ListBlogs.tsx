@@ -1,4 +1,3 @@
-
 import { Card } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
 import { Text } from "@/components/ui/text";
@@ -12,6 +11,12 @@ interface Blog {
 }
 
 export default function ListBlog({ blog }: { blog: Blog }) {
+  // Function to generate a content excerpt
+  const getExcerpt = (text: string, length: number) => {
+    if (text.length <= length) return text;
+    return text.slice(0, length) + "...";
+  };
+
   return (
     <Link
       href={`/dashboard/blogs/${blog.id}`}
@@ -26,11 +31,11 @@ export default function ListBlog({ blog }: { blog: Blog }) {
           alt={`${blog.name} image`}
           resizeMode="contain"
         />
-        <Text className="text-sm font-normal mb-2 text-typography-700">
+        <Text className="text-3xl font-normal mb-2 text-typography-700">
           Title: {blog.name}
         </Text>
         <Text className="text-sm mb-2 text-typography-600">
-          Content: {blog.content}
+          Content: {getExcerpt(blog.content, 100)}
         </Text>
       </Card>
     </Link>

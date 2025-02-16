@@ -1,10 +1,11 @@
-// eslint-disable-
 "use client";
+
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import ListBlog from "../ListBlogs";
 import { fetchBlog } from "@/api/blogs";
 import { deleteBlogById, updateBlog } from "./actions";
+import Image from "next/image";
+
 
 export default function BlogPage({
   params: { id },
@@ -39,7 +40,7 @@ export default function BlogPage({
         setUpdatedData({
           name: data.name,
           content: data.content,
-          Image: data.Image
+          Image: data.Image,
         });
       } catch (err) {
         setError("Failed to fetch blog details.");
@@ -154,8 +155,20 @@ export default function BlogPage({
           </div>
         </div>
       ) : (
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        <ListBlog blog={blog} />
+        // Display full blog content
+        <div className="bg-white shadow-md rounded-lg p-6 ">
+          <Image
+            src={blog.Image}
+            alt={`${blog.name} image`}
+            width={800} // Adjust width and height based on your design
+            height={400}
+            className="mb-6 h-[240px] w-full rounded-md object-contain"
+          />
+
+          <h2 className="text-3xl font-bold mb-2">{blog.name}</h2>
+          <p className="text-gray-700 whitespace-pre-wrap">{blog.content}</p>
+          <div className="my-5 py-10"></div>
+        </div>
       )}
     </div>
   );
